@@ -13,7 +13,7 @@ export default function GameStart() {
   const [categories, setCategories] = useState<Category[]>([])
   const [selectedTeacher, setSelectedTeacher] = useState<string>('')
   const [selectedCategory, setSelectedCategory] = useState<string>('')
-  const [selectedQuestionCount, setSelectedQuestionCount] = useState<string>('5')
+  const [selectedQuestionCount, setSelectedQuestionCount] = useState<string>('10')
   const [loading, setLoading] = useState<boolean>(true)
   const [categoriesLoading, setCategoriesLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>('')

@@ -2,6 +2,18 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .header {
@@ -44,6 +56,18 @@
   max-width: 800px;
   width: 100%;
   text-align: center;
+  animation: slideInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .gameHeader {
@@ -68,6 +92,18 @@
   color: #333;
   margin: 40px 0;
   line-height: 1.4;
+  animation: slideInLeft 0.8s ease-out 0.4s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .options {
@@ -86,6 +122,18 @@
   transition: all 0.3s ease;
   background-color: white;
   user-select: none;
+  animation: slideInRight 0.8s ease-out calc(0.6s + var(--delay, 0s)) both;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .option:hover {
@@ -102,12 +150,41 @@
   border-color: #27ae60;
   background-color: #d5f4e6;
   color: #27ae60;
+  animation: correctPulse 0.6s ease-in-out;
+}
+
+@keyframes correctPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(39, 174, 96, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+  }
 }
 
 .option.incorrect {
   border-color: #e74c3c;
   background-color: #ffeaea;
   color: #e74c3c;
+  animation: incorrectShake 0.6s ease-in-out;
+}
+
+@keyframes incorrectShake {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(-10px);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .option.disabled {
@@ -142,6 +219,18 @@
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: 600;
+  animation: feedbackSlideIn 0.5s ease-out;
+}
+
+@keyframes feedbackSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .feedback.correct {
@@ -164,12 +253,32 @@
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
   margin-top: 20px;
+  animation: buttonBounceIn 0.6s ease-out 0.3s both;
+}
+
+@keyframes buttonBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .nextButton:hover {
   background-color: #229954;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
 }
 
 .footer {
@@ -256,23 +365,108 @@
   
   .question {
     font-size: 1.4rem;
+    margin: 30px 0;
   }
   
   .gameContainer {
     padding: 20px;
+    margin: 0 10px;
   }
   
   .header {
     padding: 15px 20px;
   }
   
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .gameHeader {
+    margin-bottom: 30px;
+  }
+  
+  .progress, .score {
+    font-size: 1rem;
+  }
+  
+  .option {
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .feedback {
+    padding: 15px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .answerButton, .nextButton {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
   .gameEndActions {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
   
   .playAgainButton, .viewScoresButton {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px 15px;
+  }
+  
+  .main {
+    padding: 20px 10px;
+  }
+  
+  .gameContainer {
+    padding: 15px;
+    margin: 0 5px;
+  }
+  
+  .question {
+    font-size: 1.2rem;
+    margin: 20px 0;
+  }
+  
+  .gameHeader {
+    margin-bottom: 20px;
+  }
+  
+  .progress, .score {
+    font-size: 0.9rem;
+  }
+  
+  .option {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .feedback {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .answerButton, .nextButton {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+  
+  .finalScore {
+    font-size: 1.6rem;
+  }
+  
+  .completionMessage {
+    font-size: 1rem;
   }
 }

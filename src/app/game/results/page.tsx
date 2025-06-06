@@ -229,20 +229,47 @@ export default function GameResults() {
     router.push('/game')
   }
 
-  // Group scores by category for display
-  const scoresByCategory = highScores.reduce((acc, score) => {
-    const categoryName = score.categories?.name || 'Tuntematon'
-    if (!acc[categoryName]) {
-      acc[categoryName] = []
-    }
-    acc[categoryName].push(score)
-    return acc
-  }, {} as Record<string, ScoreWithCategory[]>)
+  // Group scores by difficulty level (question count) and category for display
+  const getDifficultyLevel = (totalQuestions: number) => {
+    if (totalQuestions <= 5) return 'Lyhyt (5 kysymystä)'
+    if (totalQuestions <= 10) return 'Keskipitkä (10 kysymystä)'
+    return 'Pitkä (15+ kysymystä)'
+  }
 
-  // Limit to top 3 per category for display
-  Object.keys(scoresByCategory).forEach(category => {
-    scoresByCategory[category] = scoresByCategory[category].slice(0, 3)
+  const scoresByDifficultyAndCategory = highScores.reduce((acc, score) => {
+    const difficultyLevel = getDifficultyLevel(score.total_questions)
+    const categoryName = score.categories?.name || 'Tuntematon'
+    const key = `${difficultyLevel}_${categoryName}`
+    
+    if (!acc[key]) {
+      acc[key] = {
+        difficulty: difficultyLevel,
+        category: categoryName,
+        scores: []
+      }
+    }
+    acc[key].scores.push(score)
+    return acc
+  }, {} as Record<string, { difficulty: string; category: string; scores: ScoreWithCategory[] }>)
+
+  // Sort scores within each group and limit to top 5 per group for display
+  Object.keys(scoresByDifficultyAndCategory).forEach(key => {
+    scoresByDifficultyAndCategory[key].scores = scoresByDifficultyAndCategory[key].scores
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score
+        return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+      })
+      .slice(0, 5)
   })
+
+  // Group by difficulty level for better display
+  const scoresByDifficulty = Object.values(scoresByDifficultyAndCategory).reduce((acc, group) => {
+    if (!acc[group.difficulty]) {
+      acc[group.difficulty] = []
+    }
+    acc[group.difficulty].push(group)
+    return acc
+  }, {} as Record<string, Array<{ difficulty: string; category: string; scores: ScoreWithCategory[] }>>)
 
   return (
     <div className={styles.layout}>
@@ -292,36 +319,43 @@ export default function GameResults() {
               {success && <div className={styles.success}>{success}</div>}
               
               <div className={styles.highScores}>
-                <h2 className={styles.highScoresTitle}>High scores</h2>
+                <h2 className={styles.highScoresTitle}>Parhaat tulokset</h2>
                 
                 {loading ? (
                   <div className={styles.loading}>Ladataan tuloksia...</div>
                 ) : error ? (
                   <div className={styles.error}>{error}</div>
-                ) : Object.keys(scoresByCategory).length > 0 ? (
-                  Object.entries(scoresByCategory).map(([categoryName, scores]) => (
-                    <div key={categoryName} className={styles.scoresByCategory}>
-                      <h3 className={styles.categoryTitle}>{categoryName}</h3>
-                      <table className={styles.scoresTable}>
-                        <thead>
-                          <tr>
-                            <th></th>
-                            <th>Nimi</th>
-                            <th>Pisteet</th>
-                            <th>%</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {scores.map((scoreEntry, index) => (
-                            <tr key={scoreEntry.id}>
-                              <td>{index + 1}.</td>
-                              <td>{scoreEntry.player_name}</td>
-                              <td>{scoreEntry.score}/{scoreEntry.total_questions}</td>
-                              <td>{Math.round((scoreEntry.score / scoreEntry.total_questions) * 100)}%</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                ) : Object.keys(scoresByDifficulty).length > 0 ? (
+                  Object.entries(scoresByDifficulty).map(([difficulty, categoryGroups]) => (
+                    <div key={difficulty} className={styles.difficultySection}>
+                      <h3 className={styles.difficultyTitle}>{difficulty}</h3>
+                      {categoryGroups.map(({ category, scores }) => (
+                        <div key={`${difficulty}_${category}`} className={styles.scoresByCategory}>
+                          <h4 className={styles.categoryTitle}>{category}</h4>
+                          <table className={styles.scoresTable}>
+                            <thead>
+                              <tr>
+                                <th>Sija</th>
+                                <th>Nimi</th>
+                                <th>Pisteet</th>
+                                <th>%</th>
+                                <th>Päivä</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {scores.map((scoreEntry, index) => (
+                                <tr key={scoreEntry.id} className={index === 0 ? styles.firstPlace : ''}>
+                                  <td>{index + 1}.</td>
+                                  <td>{scoreEntry.player_name}</td>
+                                  <td>{scoreEntry.score}/{scoreEntry.total_questions}</td>
+                                  <td>{Math.round((scoreEntry.score / scoreEntry.total_questions) * 100)}%</td>
+                                  <td>{new Date(scoreEntry.created_at).toLocaleDateString('fi-FI')}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ))}
                     </div>
                   ))
                 ) : (

@@ -24,11 +24,8 @@ export default function Home() {
               Nyt se onnistuu! Valitse opettaja ja aihelue, ja aloita!
             </p>
             <Link href="/game">
-              <button
-                className={styles.playButton}
-                style={{ marginTop: '200px' }}
-              >
-                Aloita peli
+              <button className={styles.playButton}>
+                Pelaa nyt
               </button>
             </Link>
           </div>
@@ -55,7 +52,7 @@ export default function Home() {
                 <div className={`${styles.option} ${styles.selected}`}>Lisää toiminnallisuutta</div>
                 <div className={styles.option}>Hoitaa tietoturvaa</div>
               </div>
-              <button className={styles.answerButton} style={{ marginBottom: '12px' }}>
+              <button className={styles.answerButton}>
                 Vastaa
               </button>
             </div>

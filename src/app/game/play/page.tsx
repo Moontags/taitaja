@@ -257,7 +257,7 @@ export default function GamePlay() {
           </div>
 
           <div className={styles.options}>
-            {options.map((option) => {
+            {options.map((option, index) => {
               let optionClass = styles.option
               
               if (gameState.showFeedback) {
@@ -275,6 +275,7 @@ export default function GamePlay() {
                 <div
                   key={option.key}
                   className={optionClass}
+                  style={{ '--delay': `${index * 0.1}s` } as React.CSSProperties}
                   onClick={() => handleAnswerSelect(option.key)}
                 >
                   {option.text}
