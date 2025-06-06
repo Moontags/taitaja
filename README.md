@@ -2,19 +2,6 @@
 
 Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025 -semifinaaliin.
 
-##  Sisällysluettelo
-
-- [Ominaisuudet](#ominaisuudet)
-- [Teknologiat](#teknologiat)
-- [Asennus](#asennus)
-- [Käyttöönotto](#käyttöönotto)
-- [Supabase-konfiguraatio](#supabase-konfiguraatio)
-- [Käyttöohjeet](#käyttöohjeet)
-- [Projektin rakenne](#projektin-rakenne)
-- [API-dokumentaatio](#api-dokumentaatio)
-- [Tietoturva](#tietoturva)
-- [Lisenssi](#lisenssi)
-
 ##  Ominaisuudet
 
 ### Pelitoiminnot
@@ -37,71 +24,38 @@ Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025
 - **Visuaalinen palaute** - Selkeät animaatiot ja korostukset
 - **Esteettömyys** - Noudattaa web-esteettömyyden periaatteita
 
-## 🛠 Teknologiat
+##  Tekninen toteutus
 
-- **Frontend**: Next.js 15 (App Router)
-- **Styling**: Custom CSS Modules
-- **Backend**: Supabase (PostgreSQL)
-- **Autentikointi**: Supabase Auth + custom session management
-- **TypeScript**: Täysi tyyppiturvallisuus
-- **Deployment**: Taitaja kilpailuympäristö
+### Arkkitehtuuri
+- **Next.js 15** App Router -arkkitehtuurilla
+- **TypeScript** tyyppiturvallisuudelle  
+- **Supabase** PostgreSQL-tietokannalla ja autentikoinnilla
+- **CSS Modules** puhtaalla CSS:llä (ei ulkoisia UI-kirjastoja)
+- **React Server/Client Components** -pattern
 
-##  Asennus
-
-### Vaatimukset
-- Node.js 18+ 
-- npm tai yarn
-- Supabase-tili
-
-### 1. Kloonaa repositorio
-```bash
-git clone https://git.taitaja.webkehitys.fi/[käyttäjänimi]/frontend.git
-cd frontend
+### Tietokantarakenne
+```sql
+teachers (id, username, password_hash)
+categories (id, name, teacher_id) 
+questions (id, question, options A-D, correct_option, category_id, teacher_id)
+scores (id, player_name, score, total_questions, category_id, created_at)
 ```
 
-### 2. Asenna riippuvuudet
-```bash
-npm install
-```
+### Animaatiot ja visuaaliset tehosteet
+- **Sivun lataus**: fadeIn-animaatio (opacity + translateY)
+- **Elementtien sisääntulo**: slideInLeft, slideInUp porrastetusti
+- **Pelin palaute**: correctPulse (vihreä syvytä), incorrectShake (punainen tärinä)
+- **Hover-efektit**: transform + box-shadow siirtymät
+- **Responsiivinen**: 768px, 480px, 320px breakpointit
 
-### 3. Luo ympäristömuuttujat
-Luo `.env.local` tiedosto projektin juureen:
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
+### Ominaisuudet
+- Vaikeustasot kysymysmäärän mukaan (5, 10, 15+)
+- Reaaliaikainen pistelaskenta ja edistymisseuranta
+- Tulosten tallennus vaikeustasoineen ja kategorioittain
+- Admin-paneeli opettajille (CRUD-operaatiot)
+- Täysin responsiivinen design (paitsi admin-paneeli)
 
-### 4. Käynnistä kehityspalvelin
-```bash
-npm run dev
-```
-
-Sovellus aukeaa osoitteeseen `http://localhost:3000`
-
-## 🗄 Supabase-konfiguraatio
-
-### 1. Luo uusi Supabase-projekti
-1. Mene [Supabase Dashboard](https://supabase.com/dashboard)
-2. Luo uusi projekti
-3. Odota, että tietokanta on valmis
-
-### 2. Suorita tietokantamigraatiot
-1. Mene projektin SQL Editoriin
-2. Kopioi ja suorita `quiz_app.sql` tiedoston sisältö
-3. Suorita lisäksi `supabase-setup.sql` luodaksesi scores-taulun
-
-### 3. Konfiguroi autentikointi (valinnainen)
-Jos haluat käyttää Supabase Auth:ia:
-1. Mene Authentication > Settings
-2. Konfiguroi email providers
-3. Päivitä login-komponentti käyttämään Supabase Auth:ia
-
-### 4. Hae API-avaimet
-1. Mene Project Settings > API
-2. Kopioi Project URL ja anon public key
-3. Lisää ne `.env.local` tiedostoon
-
-## 📖 Käyttöohjeet
+##  Käyttöohjeet
 
 ### Pelaajalle
 
@@ -304,16 +258,6 @@ npm run lint
 ##  Lisenssi
 
 Tämä projekti on luotu Taitaja 2025 -kilpailua varten.
-
-##  Tuki
-
-Jos kohtaat ongelmia:
-1. Tarkista `.env.local` muuttujat
-2. Varmista Supabase-yhteys
-3. Tarkista konsoliloki virheistä
-4. Varmista että kaikki riippuvuudet on asennettu
-
----
 
 **Taitaja2025 -semifinaali**  
 *Jari Peltola | Salon seudun ammattiopisto*

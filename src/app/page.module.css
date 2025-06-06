@@ -112,7 +112,8 @@
   align-self: flex-start;
   animation: slideInUp 0.8s ease-out 0.6s both;
   transform: translateY(0);
-  margin-top: auto;
+  margin-top: 140px;
+  
 }
 
 @keyframes slideInUp {

@@ -19,7 +19,8 @@ export default function Home() {
               TietoTesti
             </h1>
             <p className={styles.description}>
-              Haluatko testata tietosi? Nyt se onnistuu! Valitse opettaja ja aihelue, ja aloita!
+              Haluatko testata tietosi? Nyt se onnistuu! <br />
+              Valitse opettaja ja aihelue, ja aloita!
             </p>
             <Link href="/game">
               <button className={styles.playButton}>
@@ -55,10 +56,10 @@ export default function Home() {
               </button>
             </div>
             
-            <div className={styles.gameFooter}>
+            {/* <div className={styles.gameFooter}>
               Taitaja2025 -semifinaali<br />
               Jari Peltola | Salon seudun ammattiopisto
-            </div>
+            </div> */}
           </div>
         </div>
       </main>

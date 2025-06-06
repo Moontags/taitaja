@@ -216,7 +216,7 @@ export default function GameStart() {
       <footer className={styles.footer}>
         <div>
           Taitaja2025 -semifinaali<br />
-          Jari Peltola | Salon ammttiopisto | 2024
+          Jari Peltola | Salon ammattiopisto
         </div>
       </footer>
     </div>
