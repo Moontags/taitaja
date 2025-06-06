@@ -198,8 +198,12 @@ export default function GameStart() {
           </div>
 
           <div className={styles.rightSection}>
-            <div className={styles.placeholderBox}>
-              Kuva
+            <div className={styles.imageContainer}>
+              <img 
+                src="/images/quiz-sudoku.svg" 
+                alt="Quiz game illustration" 
+                className={styles.quizImage}
+              />
             </div>
           </div>
         </div>

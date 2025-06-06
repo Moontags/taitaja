@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#f9f9f9"/>
+  
+  <!-- Glasses silhouette -->
+  <g fill="#e0e0e0" stroke="#ccc" stroke-width="2">
+    <!-- Left lens -->
+    <circle cx="80" cy="100" r="35"/>
+    <!-- Right lens -->
+    <circle cx="220" cy="100" r="35"/>
+    <!-- Bridge -->
+    <rect x="115" y="95" width="70" height="10" rx="5"/>
+    <!-- Left temple -->
+    <rect x="25" y="95" width="55" height="6" rx="3"/>
+    <!-- Right temple -->
+    <rect x="220" y="95" width="55" height="6" rx="3"/>
+  </g>
+  
+  <!-- Quiz elements scattered around -->
+  <g font-family="Arial, sans-serif" font-size="12" fill="#999">
+    <!-- Question marks -->
+    <text x="50" y="40" font-size="16" font-weight="bold">?</text>
+    <text x="250" y="50" font-size="16" font-weight="bold">?</text>
+    <text x="30" y="170" font-size="16" font-weight="bold">?</text>
+    <text x="270" y="160" font-size="16" font-weight="bold">?</text>
+    
+    <!-- Multiple choice options -->
+    <text x="20" y="80">A)</text>
+    <text x="260" y="80">B)</text>
+    <text x="20" y="130">C)</text>
+    <text x="260" y="130">D)</text>
+    
+    <!-- Small numbers -->
+    <text x="150" y="30">1</text>
+    <text x="150" y="180">2</text>
+    <text x="10" y="100">3</text>
+    <text x="290" y="100">4</text>
+  </g>
+  
+  <!-- Decorative grid elements -->
+  <g stroke="#e0e0e0" stroke-width="1" fill="none" opacity="0.5">
+    <line x1="0" y1="60" x2="300" y2="60"/>
+    <line x1="0" y1="140" x2="300" y2="140"/>
+    <line x1="75" y1="0" x2="75" y2="200"/>
+    <line x1="225" y1="0" x2="225" y2="200"/>
+  </g>
+</svg>

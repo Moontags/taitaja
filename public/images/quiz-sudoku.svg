@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Sudoku grid background -->
+  <rect width="400" height="300" fill="#f5f5f5"/>
+  
+  <!-- Glasses outline -->
+  <g stroke="#333" stroke-width="3" fill="none">
+    <!-- Left lens -->
+    <circle cx="120" cy="150" r="60" fill="rgba(255,255,255,0.1)"/>
+    <!-- Right lens -->
+    <circle cx="280" cy="150" r="60" fill="rgba(255,255,255,0.1)"/>
+    <!-- Bridge -->
+    <line x1="180" y1="150" x2="220" y2="150"/>
+    <!-- Left temple -->
+    <line x1="60" y1="150" x2="40" y2="140"/>
+    <!-- Right temple -->
+    <line x1="340" y1="150" x2="360" y2="140"/>
+  </g>
+  
+  <!-- Sudoku grid -->
+  <g transform="translate(50, 50)">
+    <!-- Main grid lines -->
+    <g stroke="#333" stroke-width="2" fill="none">
+      <!-- Vertical lines -->
+      <line x1="0" y1="0" x2="0" y2="200"/>
+      <line x1="100" y1="0" x2="100" y2="200"/>
+      <line x1="200" y1="0" x2="200" y2="200"/>
+      <line x1="300" y1="0" x2="300" y2="200"/>
+      <!-- Horizontal lines -->
+      <line x1="0" y1="0" x2="300" y2="0"/>
+      <line x1="0" y1="100" x2="300" y2="100"/>
+      <line x1="0" y1="200" x2="300" y2="200"/>
+    </g>
+    
+    <!-- Sub-grid lines -->
+    <g stroke="#666" stroke-width="1" fill="none">
+      <!-- Vertical sub-lines -->
+      <line x1="33" y1="0" x2="33" y2="200"/>
+      <line x1="67" y1="0" x2="67" y2="200"/>
+      <line x1="133" y1="0" x2="133" y2="200"/>
+      <line x1="167" y1="0" x2="167" y2="200"/>
+      <line x1="233" y1="0" x2="233" y2="200"/>
+      <line x1="267" y1="0" x2="267" y2="200"/>
+      <!-- Horizontal sub-lines -->
+      <line x1="0" y1="33" x2="300" y2="33"/>
+      <line x1="0" y1="67" x2="300" y2="67"/>
+      <line x1="0" y1="133" x2="300" y2="133"/>
+      <line x1="0" y1="167" x2="300" y2="167"/>
+    </g>
+    
+    <!-- Sample numbers -->
+    <g font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#333">
+      <text x="17" y="25">5</text>
+      <text x="50" y="25">3</text>
+      <text x="150" y="25">7</text>
+      <text x="17" y="58">6</text>
+      <text x="83" y="58">1</text>
+      <text x="117" y="58">9</text>
+      <text x="183" y="58">5</text>
+      <text x="250" y="125">9</text>
+      <text x="283" y="125">8</text>
+      <text x="17" y="125">8</text>
+      <text x="150" y="158">6</text>
+      <text x="250" y="158">3</text>
+      <text x="117" y="192">8</text>
+      <text x="150" y="192">3</text>
+      <text x="183" y="192">1</text>
+      <text x="217" y="192">6</text>
+    </g>
+  </g>
+  
+  <!-- Quiz text overlay -->
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">QUIZ</text>
+</svg>
