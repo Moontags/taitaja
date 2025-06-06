@@ -1,0 +1,252 @@
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #f5f5f5;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.loginLink {
+  color: #666;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.loginLink:hover {
+  color: #333;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.playButton {
+  background-color: #333;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: flex-start;
+}
+
+.playButton:hover {
+  background-color: #555;
+}
+
+.rightSection {
+  position: relative;
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.browserHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.browserDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+.gamePreview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gameTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.question {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.option {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option.selected {
+  background-color: #f0f0f0;
+  border-color: #666;
+}
+
+.answerButton {
+  background-color: #666;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.gameFooter {
+  background-color: #666;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.footer {
+  background-color: #666;
+  color: white;
+  text-align: center;
+  padding: 20px 40px;
+  margin-top: auto;
+}
+
+.instructionsSection {
+  background-color: white;
+  padding: 40px;
+  margin: 40px 0;
+}
+
+.instructionsTitle {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.instructionsList {
+  list-style: none;
+  counter-reset: instruction-counter;
+}
+
+.instructionItem {
+  counter-increment: instruction-counter;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.instructionItem::before {
+  content: counter(instruction-counter) ".";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.tryButton {
+  background-color: transparent;
+  color: #333;
+  border: 2px solid #333;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 30px auto 0;
+  display: block;
+}
+
+.tryButton:hover {
+  background-color: #333;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .rightSection {
+    min-height: 300px;
+  }
+}
