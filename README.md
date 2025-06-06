@@ -1,6 +1,6 @@
 # Taitaja 2025 - Kysymyspeli
 
-Täysin toimiva kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025 -semifinaaliin.
+Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025 -semifinaaliin.
 
 ## 📋 Sisällysluettelo
 
@@ -28,7 +28,7 @@ Täysin toimiva kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabase
 - **Turvallinen kirjautuminen** - Opettajien autentikointi
 - **Kategorioiden hallinta** - Luo, muokkaa ja poista kategorioita
 - **Kysymysten hallinta** - Luo, muokkaa ja poista kysymyksiä
-- **CRUD-toiminnot** - Täydelliset Create, Read, Update, Delete -operaatiot
+- **CRUD-toiminnot** - Create, Read, Update, Delete -operaatiot
 - **Tulosten tarkastelu** - Tarkastele opiskelijoiden pelituloksia
 
 ### Käyttöliittymä
@@ -316,4 +316,4 @@ Jos kohtaat ongelmia:
 ---
 
 **Taitaja2025 -semifinaali**  
-*Etu- ja sukunimi | Oppilaitoksen nimi*
+*Jari Peltola | Salon seudun ammattiopisto*

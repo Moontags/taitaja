@@ -147,7 +147,7 @@ export default function GamePlay() {
         <footer className={styles.footer}>
           <div>
             Taitaja2025 -semifinaali<br />
-            Etu- ja sukunimi | Oppilaitoksen nimi
+            Jari Peltola | Salon seudun ammattiopisto
           </div>
         </footer>
       </div>
@@ -173,7 +173,7 @@ export default function GamePlay() {
         <footer className={styles.footer}>
           <div>
             Taitaja2025 -semifinaali<br />
-            Etu- ja sukunimi | Oppilaitoksen nimi
+            Jari peltola | Salon seudun ammattiopisto
           </div>
         </footer>
       </div>
@@ -213,7 +213,7 @@ export default function GamePlay() {
         <footer className={styles.footer}>
           <div>
             Taitaja2025 -semifinaali<br />
-            Etu- ja sukunimi | Oppilaitoksen nimi
+            Jari Peltola | Salon seudun ammattiopisto
           </div>
         </footer>
       </div>
@@ -320,7 +320,7 @@ export default function GamePlay() {
       <footer className={styles.footer}>
         <div>
           Taitaja2025 -semifinaali<br />
-          Etu- ja sukunimi | Oppilaitoksen nimi
+          Jari Peltola | Salon seudun ammattiopisto
         </div>
       </footer>
     </div>

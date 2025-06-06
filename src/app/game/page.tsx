@@ -199,7 +199,7 @@ export default function GameStart() {
 
           <div className={styles.rightSection}>
             <div className={styles.placeholderBox}>
-              Kuva tai animaatio pelistä tulee tähän
+              Kuva
             </div>
           </div>
         </div>
