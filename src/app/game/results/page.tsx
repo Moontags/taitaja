@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState, useEffect, useCallback, Suspense } from 'react'
@@ -229,6 +230,7 @@ function GameResultsContent() {
     router.push('/game')
   }
 
+  // TEKOÄLYN SUORITTAMAA KOODIA - Vaikeustasojärjestely
   // Group scores by difficulty level (question count) and category for display
   const getDifficultyLevel = (totalQuestions: number) => {
     if (totalQuestions <= 5) return 'Lyhyt (5 kysymystä)'

@@ -1,3 +1,4 @@
+// TEKOÄLYN SUORITTAMAA KOODIA - Admin CRUD-operaatiot ja lomakkeiden käsittely
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'

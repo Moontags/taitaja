@@ -1,3 +1,4 @@
+
 .layout {
   min-height: 100vh;
   display: flex;
@@ -153,6 +154,7 @@
   animation: correctPulse 0.6s ease-in-out;
 }
 
+/* TEKOÄLYN SUORITTAMAA KOODIA - Oikean vastauksen pulssi-animaatio */
 @keyframes correctPulse {
   0% {
     transform: scale(1);
@@ -175,6 +177,7 @@
   animation: incorrectShake 0.6s ease-in-out;
 }
 
+/* TEKOÄLYN SUORITTAMAA KOODIA - Väärän vastauksen tärinä-animaatio */
 @keyframes incorrectShake {
   0%, 20%, 40%, 60%, 80% {
     transform: translateX(-10px);

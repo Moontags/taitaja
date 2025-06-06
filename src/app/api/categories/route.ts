@@ -1,3 +1,4 @@
+// TEKOÄLYN SUORITTAMAA KOODIA - Kategorioiden API-hallinta
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 

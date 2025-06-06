@@ -1,3 +1,4 @@
+// TEKOÄLYN SUORITTAMAA KOODIA - API-reititys ja tietokantaoperaatiot
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 

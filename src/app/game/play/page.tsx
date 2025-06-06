@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
@@ -51,6 +52,7 @@ function GamePlayContent() {
           return
         }
 
+        // TEKOÄLYN SUORITTAMAA KOODIA - Kysymysten sekoitus
         // Shuffle and limit to requested count
         const shuffled = data.sort(() => 0.5 - Math.random())
         const selected = shuffled.slice(0, Math.min(questionCount, data.length))

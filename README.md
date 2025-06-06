@@ -259,5 +259,18 @@ npm run lint
 
 Tämä projekti on luotu Taitaja 2025 -kilpailua varten.
 
+---
+
+##  Tekoälyn osuus
+
+Tämä projekti on toteutettu tekoälyn avustamana. Tekoäly vastasi erityisesti:
+- **Pelimekaniikan** suunnittelusta
+- **Vaikeustasojärjestelyn** logiikasta
+- **API-reittien** ja tietokantaoperaatioiden koodaamisesta
+
+Osat on merkitty kommentilla: `// TEKOÄLYN SUORITTAMAA KOODIA`
+
+---
+
 **Taitaja2025 -semifinaali**  
 *Jari Peltola | Salon seudun ammattiopisto*
