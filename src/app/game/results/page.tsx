@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase, Score, Category } from '@/lib/supabase'
@@ -10,7 +10,7 @@ type ScoreWithCategory = Score & {
   categories?: Category
 }
 
-export default function GameResults() {
+function GameResultsContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [playerName, setPlayerName] = useState('')
@@ -378,5 +378,37 @@ export default function GameResults() {
         </div>
       </footer>
     </div>
+  )
+}
+
+function LoadingSpinner() {
+  return (
+    <div className={styles.layout}>
+      <header className={styles.header}>
+        <Link href="/" className={styles.logo}>TAITAJA TIETOTESTI</Link>
+        <Link href="/login" className={styles.loginLink}>
+          Kirjaudu sisään
+        </Link>
+      </header>
+      <main className={styles.main}>
+        <div className={styles.loading}>
+          Ladataan tuloksia...
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <div>
+          Taitaja2025 -semifinaali<br />
+          Jari Peltola | Salon seudun ammattiopisto
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export default function GameResults() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <GameResultsContent />
+    </Suspense>
   )
 }

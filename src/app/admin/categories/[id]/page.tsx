@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter, useParams } from 'next/navigation'
 import { supabase, Question, Category } from '@/lib/supabase'
@@ -38,19 +38,7 @@ export default function AdminQuestions() {
   const [teacherId, setTeacherId] = useState<number | null>(null)
   const [teacherName, setTeacherName] = useState('')
 
-  useEffect(() => {
-    // Get teacher info from session
-    const id = sessionStorage.getItem('teacherId')
-    const name = sessionStorage.getItem('teacherName')
-    
-    if (id && name) {
-      setTeacherId(parseInt(id))
-      setTeacherName(name)
-      fetchCategoryAndQuestions(parseInt(id))
-    }
-  }, [categoryId])
-
-  const fetchCategoryAndQuestions = async (tId: number) => {
+  const fetchCategoryAndQuestions = useCallback(async (tId: number) => {
     try {
       setLoading(true)
       
@@ -86,7 +74,19 @@ export default function AdminQuestions() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [categoryId, router])
+
+  useEffect(() => {
+    // Get teacher info from session
+    const id = sessionStorage.getItem('teacherId')
+    const name = sessionStorage.getItem('teacherName')
+    
+    if (id && name) {
+      setTeacherId(parseInt(id))
+      setTeacherName(name)
+      fetchCategoryAndQuestions(parseInt(id))
+    }
+  }, [categoryId, fetchCategoryAndQuestions])
 
   const handleLogout = () => {
     sessionStorage.removeItem('teacherId')

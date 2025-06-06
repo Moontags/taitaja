@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase, Question } from '@/lib/supabase'
@@ -15,7 +15,7 @@ type GameState = {
   questions: Question[]
 }
 
-export default function GamePlay() {
+function GamePlayContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [gameState, setGameState] = useState<GameState>({
@@ -325,5 +325,37 @@ export default function GamePlay() {
         </div>
       </footer>
     </div>
+  )
+}
+
+function LoadingSpinner() {
+  return (
+    <div className={styles.layout}>
+      <header className={styles.header}>
+        <Link href="/" className={styles.logo}>TAITAJA TIETOTESTI</Link>
+        <Link href="/login" className={styles.loginLink}>
+          Kirjaudu sisään
+        </Link>
+      </header>
+      <main className={styles.main}>
+        <div className={styles.loading}>
+          Ladataan peliä...
+        </div>
+      </main>
+      <footer className={styles.footer}>
+        <div>
+          Taitaja2025 -semifinaali<br />
+          Jari Peltola | Salon seudun ammattiopisto
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export default function GamePlay() {
+  return (
+    <Suspense fallback={<LoadingSpinner />}>
+      <GamePlayContent />
+    </Suspense>
   )
 }
