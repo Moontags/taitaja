@@ -62,23 +62,20 @@ export default function Login() {
         return
       }
 
-      // For simplicity, we'll use the username as email for Supabase auth
-      // In a real app, you'd want proper password hashing
       const email = `${formData.username.toLowerCase().replace(/\s+/g, '')}@taitaja.local`
 
-      // Try to sign in with Supabase auth
+   
       const { error: authError } = await supabase.auth.signInWithPassword({
         email: email,
         password: formData.password
       })
 
       if (authError) {
-        // If auth fails, it might be because the user doesn't exist in auth yet
-        // For demo purposes, we'll check against the simple password in database
+       
         if (teacher.password_hash === formData.password || 
             (teacher.username === 'Jyri Lindroos' && formData.password === 'password123')) {
           
-          // Create a simple session simulation for the demo
+     
           sessionStorage.setItem('teacherId', teacher.id.toString())
           sessionStorage.setItem('teacherName', teacher.username)
           router.push('/admin')
@@ -127,7 +124,7 @@ export default function Login() {
                 value={formData.username}
                 onChange={handleInputChange}
                 className={`${styles.input} ${error ? styles.error : ''}`}
-                placeholder="Väärä käyttäjätunnus"
+                placeholder=""
                 autoComplete="username"
               />
             </div>
@@ -143,7 +140,7 @@ export default function Login() {
                 value={formData.password}
                 onChange={handleInputChange}
                 className={`${styles.input} ${error ? styles.error : ''}`}
-                placeholder="•••"
+                placeholder=""
                 autoComplete="current-password"
               />
             </div>

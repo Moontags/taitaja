@@ -2,7 +2,7 @@
 
 Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025 -semifinaaliin.
 
-## 📋 Sisällysluettelo
+##  Sisällysluettelo
 
 - [Ominaisuudet](#ominaisuudet)
 - [Teknologiat](#teknologiat)
@@ -15,7 +15,7 @@ Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025
 - [Tietoturva](#tietoturva)
 - [Lisenssi](#lisenssi)
 
-## ✨ Ominaisuudet
+##  Ominaisuudet
 
 ### Pelitoiminnot
 - **Interaktiivinen kysymyspeli** - Valitse opettaja, kategoria ja kysymysten määrä (5, 10 tai 15)
@@ -46,7 +46,7 @@ Kysymyspelisovellus, joka on rakennettu Next.js:llä ja Supabasella Taitaja 2025
 - **TypeScript**: Täysi tyyppiturvallisuus
 - **Deployment**: Taitaja kilpailuympäristö
 
-## 🚀 Asennus
+##  Asennus
 
 ### Vaatimukset
 - Node.js 18+ 
@@ -143,7 +143,7 @@ Jos haluat käyttää Supabase Auth:ia:
    - Täytä kaikki kentät: kysymys, neljä vaihtoehtoa ja oikea vastaus
    - Muokkaa tai poista olemassa olevia kysymyksiä
 
-## 📁 Projektin rakenne
+## Projektin rakenne
 
 ```
 taitaja-quiz/
@@ -174,7 +174,7 @@ taitaja-quiz/
 └── README.md                       # Tämä tiedosto
 ```
 
-## 🔌 API-dokumentaatio
+## API-dokumentaatio
 
 ### Scores API
 
@@ -263,7 +263,7 @@ Luo uusi kysymys.
 }
 ```
 
-## 🔒 Tietoturva
+## Tietoturva
 
 ### Autentikointi
 - Session-pohjainen autentikointi opettajille
@@ -279,7 +279,7 @@ Luo uusi kysymys.
 - Salaiset avaimet .env.local tiedostossa
 - Ei committata sensitiivisiä tietoja
 
-## 🔧 Kehitys
+## Kehitys
 
 ### Uusien ominaisuuksien lisääminen
 
@@ -301,11 +301,11 @@ npm start
 npm run lint
 ```
 
-## 📝 Lisenssi
+##  Lisenssi
 
 Tämä projekti on luotu Taitaja 2025 -kilpailua varten.
 
-## 🤝 Tuki
+##  Tuki
 
 Jos kohtaat ongelmia:
 1. Tarkista `.env.local` muuttujat

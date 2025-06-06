@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase, Teacher, Category } from '@/lib/supabase'
 import styles from './page.module.css'
+import Image from 'next/image'
 
 export default function GameStart() {
   const router = useRouter()
@@ -199,10 +200,13 @@ export default function GameStart() {
 
           <div className={styles.rightSection}>
             <div className={styles.imageContainer}>
-              <img 
-                src="/images/quiz-sudoku.svg" 
-                alt="Quiz game illustration" 
+              <Image
+                src="/images/quiz-sudoku.svg"
+                alt="Quiz game illustration"
                 className={styles.quizImage}
+                width={400} 
+                height={400} 
+                priority 
               />
             </div>
           </div>

@@ -18,13 +18,17 @@ export default function Home() {
               Taitaja<br />
               TietoTesti
             </h1>
-            <p className={styles.description}>
-              Haluatko testata tietosi? Se on nyt helppoa! Valitse opettaja ja aihelue, ja
-              aloita heti!
+            <h2 className={styles.description}>
+              Haluatko testata tietosi? </h2>
+            <p>
+              Nyt se onnistuu! Valitse opettaja ja aihelue, ja aloita!
             </p>
             <Link href="/game">
-              <button className={styles.playButton}>
-                Pelaa nyt
+              <button
+                className={styles.playButton}
+                style={{ marginTop: '200px' }}
+              >
+                Aloita peli
               </button>
             </Link>
           </div>
@@ -51,7 +55,7 @@ export default function Home() {
                 <div className={`${styles.option} ${styles.selected}`}>Lisää toiminnallisuutta</div>
                 <div className={styles.option}>Hoitaa tietoturvaa</div>
               </div>
-              <button className={styles.answerButton}>
+              <button className={styles.answerButton} style={{ marginBottom: '12px' }}>
                 Vastaa
               </button>
             </div>
@@ -68,7 +72,7 @@ export default function Home() {
         <h2 className={styles.instructionsTitle}>Miten pelataan?</h2>
         <ol className={styles.instructionsList}>
           <li className={styles.instructionItem}>
-            Tee ensimmäinen valinta - keneltä haluat oppia ja mistä aiheesta?
+            Tee valinta - keneltä haluat oppia ja mistä aiheesta?
           </li>
           <li className={styles.instructionItem}>
             Päätä, kuinka monta kysymystä haluat vastata: 5, 10 tai 15.
@@ -81,7 +85,7 @@ export default function Home() {
           </li>
         </ol>
         <button className={styles.tryButton}>
-          Kokeile taitojasi nyt!
+          Kokeile taitojasi!
         </button>
       </section>
 
