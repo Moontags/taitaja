@@ -69,6 +69,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 400px;
+  justify-content: space-between;
 }
 
 .title {
@@ -110,6 +112,7 @@
   align-self: flex-start;
   animation: slideInUp 0.8s ease-out 0.6s both;
   transform: translateY(0);
+  margin-top: auto;
 }
 
 @keyframes slideInUp {
@@ -227,6 +230,7 @@
   padding: 12px 24px;
   border-radius: 6px;
   font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .gameFooter {
@@ -307,17 +311,214 @@
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
+    padding: 20px;
+  }
+  
+  .main > .content {
+    padding: 30px 20px;
+    margin: 0 10px;
   }
   
   .title {
     font-size: 2.5rem;
+    text-align: center;
   }
   
   .header {
     padding: 15px 20px;
   }
   
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .leftSection {
+    min-height: auto;
+    gap: 25px;
+    justify-content: center;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .playButton {
+    align-self: center;
+    margin-top: 0;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+  }
+  
   .rightSection {
     min-height: 300px;
+    order: -1;
+  }
+  
+  .instructionsSection {
+    margin: 30px 10px;
+    padding: 30px 20px;
+  }
+  
+  .instructionsTitle {
+    font-size: 1.6rem;
+  }
+  
+  .instructionItem {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px 15px;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .loginLink {
+    font-size: 0.8rem;
+  }
+  
+  .main {
+    padding: 20px 10px;
+  }
+  
+  .main > .content {
+    padding: 20px 15px;
+    margin: 0 5px;
+  }
+  
+  .content {
+    gap: 30px;
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  .leftSection {
+    gap: 20px;
+  }
+  
+  .playButton {
+    padding: 15px 35px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .rightSection {
+    min-height: 250px;
+    padding: 15px;
+  }
+  
+  .gamePreview {
+    padding: 10px;
+  }
+  
+  .gameTitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .options {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .answerButton {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .gameFooter {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+  
+  .instructionsSection {
+    margin: 20px 5px;
+    padding: 20px 15px;
+  }
+  
+  .instructionsTitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  .instructionItem {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    padding-left: 25px;
+  }
+  
+  .tryButton {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+  .footer {
+    padding: 15px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .main > .content {
+    padding: 15px 10px;
+  }
+  
+  .content {
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .rightSection {
+    min-height: 200px;
+    padding: 10px;
+  }
+  
+  .gameTitle {
+    font-size: 1rem;
+  }
+  
+  .question {
+    font-size: 0.8rem;
+  }
+  
+  .instructionsSection {
+    padding: 15px 10px;
   }
 }

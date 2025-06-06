@@ -18,10 +18,8 @@ export default function Home() {
               Taitaja<br />
               TietoTesti
             </h1>
-            <h2 className={styles.description}>
-              Haluatko testata tietosi? </h2>
-            <p>
-              Nyt se onnistuu! Valitse opettaja ja aihelue, ja aloita!
+            <p className={styles.description}>
+              Haluatko testata tietosi? Nyt se onnistuu! Valitse opettaja ja aihelue, ja aloita!
             </p>
             <Link href="/game">
               <button className={styles.playButton}>
@@ -81,9 +79,11 @@ export default function Home() {
             Näe pistesi pelin lopukssa ja vertaa muihin.
           </li>
         </ol>
-        <button className={styles.tryButton}>
-          Kokeile taitojasi!
-        </button>
+        <Link href="/game">
+          <button className={styles.tryButton}>
+            Kokeile taitojasi!
+          </button>
+        </Link>
       </section>
 
       <footer className={styles.footer}>
