@@ -89,6 +89,17 @@ export default function AdminQuestions() {
     }
   }, [categoryId, fetchCategoryAndQuestions])
 
+  // Auto-hide success messages after 2 seconds
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess('')
+      }, 2000)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [success])
+
   const handleLogout = () => {
     sessionStorage.removeItem('teacherId')
     sessionStorage.removeItem('teacherName')

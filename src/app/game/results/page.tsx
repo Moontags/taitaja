@@ -156,6 +156,17 @@ function GameResultsContent() {
     fetchHighScores()
   }, [categoryId, router, fetchHighScores])
 
+  // Auto-hide success messages after 2 seconds
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess('')
+      }, 2000)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [success])
+
   const handleSaveScore = async () => {
     if (!playerName.trim()) {
       setError('Anna nimesi')

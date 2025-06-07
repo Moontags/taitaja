@@ -408,6 +408,18 @@
   border-radius: 6px;
   margin-bottom: 20px;
   border: 1px solid #27ae60;
+  animation: successFadeIn 0.3s ease-in;
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .emptyState {

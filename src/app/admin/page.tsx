@@ -30,6 +30,17 @@ export default function AdminCategories() {
     }
   }, [])
 
+  // Auto-hide success messages after 2 seconds
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        setSuccess('')
+      }, 2000)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [success])
+
   const fetchCategories = async (tId: number) => {
     try {
       setLoading(true)
